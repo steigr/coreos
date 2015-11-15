@@ -8,16 +8,16 @@ dependencies:
     - test -x "$(command -v git-lfs)" || ( curl -sL "https://github.com/github/git-lfs/releases/download/v1.0.2/git-lfs-linux-amd64-1.0.2.tar.gz" | tar -z -x --strip-components=1; PATH=$PATH:$PWD git lfs pull )
   override:
     - docker info
-    - docker build --tag "steigr/coreos:233.0.0" .
+    - docker build --tag "steigr/coreos:236.0.0" .
 test:
   override:
-    - docker images | grep -e "steigr/coreos" -e "233.0.0"
+    - docker images | grep -e "steigr/coreos" -e "236.0.0"
 deployment:
   hub:
     branch: alpha
     commands:
-      - git log -n1 --format='%H' | xargs git describe --tags | grep -E "^docker/" | sed -e 's@^docker/@@g' | xargs -n1 -I{} docker tag "steigr/coreos:233.0.0" "steigr/coreos:{}" 
+      - git log -n1 --format='%H' | xargs git describe --tags | grep -E "^docker/" | sed -e 's@^docker/@@g' | xargs -n1 -I{} docker tag "steigr/coreos:236.0.0" "steigr/coreos:{}" 
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push "steigr/coreos"
       - docker logout
-      - docker images | grep -e "steigr/coreos" -e "233.0.0" | awk '{print $1 ":" $2}' | xargs docker rmi -f
+      - docker images | grep -e "steigr/coreos" -e "236.0.0" | awk '{print $1 ":" $2}' | xargs docker rmi -f
