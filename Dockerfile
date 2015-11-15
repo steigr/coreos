@@ -3,4 +3,4 @@ maintainer Mathias Kaufmann <steigr@me.com>
 entrypoint ["/usr/lib64/systemd/systemd"]
 env container=docker
 volume ["/usr/share/oem","/home","/var","/etc","/root","/home","/opt","/media","/mnt"]
-add coreos-444.4.0.tar.xz /
+add coreos-444.5.0.tar.xz /
