@@ -1,0 +1,22 @@
+# CircleCI automated build
+---
+machine:
+  services:
+    - docker
+dependencies:
+  pre:
+    - test -x "$(command -v git-lfs)" || ( curl -sL "https://github.com/github/git-lfs/releases/download/v1.0.2/git-lfs-linux-amd64-1.0.2.tar.gz" | tar -z -x --strip-components=1; PATH=$PATH:$PWD git lfs pull )
+  override:
+    - docker info
+    - docker build --tag "steigr/coreos:passthrough" .
+test:
+  override:
+    - docker images | grep -e "steigr/coreos" -e "passthrough"
+deployment:
+  hub:
+    branch: passthrough
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push "steigr/coreos:passthrough"
+      - docker logout
+      - docker rmi -f "steigr/coreos:passthrough" 
