@@ -1,6 +1,6 @@
 # CoreOS in Docker
 
-`docker run --privileged --rm --tty --interactive steigr/coreos:367.0.0`
+`docker run --privileged --rm --tty --interactive steigr/coreos:367.1.0`
 
 ## Notes
 
@@ -14,4 +14,4 @@ Follow guides at https://coreos.com.
 
 ## Build Status
 
-[![Circle CI](https://circleci.com/gh/steigr/coreos/tree/alpha.svg?style=shield&circle-token=81eaea95884c383681fc107d95893c4cb409aa1a)](https://circleci.com/gh/steigr/coreos/tree/alpha)
+[![Circle CI](https://circleci.com/gh/steigr/coreos/tree/stable.svg?style=shield&circle-token=81eaea95884c383681fc107d95893c4cb409aa1a)](https://circleci.com/gh/steigr/coreos/tree/stable)
