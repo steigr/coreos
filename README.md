@@ -1,6 +1,6 @@
 # CoreOS in Docker
 
-`docker run --privileged --rm --tty --interactive steigr/coreos:660.0.0`
+`docker run --privileged --rm --tty --interactive steigr/coreos:668.2.0`
 
 ## Notes
 
