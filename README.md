@@ -1,6 +1,6 @@
 # CoreOS in Docker
 
-`docker run --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro --rm --tty --interactive core/coreos:alpha`
+`docker run --cap-add=NET_ADMIN --cap-add=SYS_ADMIN --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro --rm --tty --interactive core/coreos:991.2.0`
 
 ## Notes
 
